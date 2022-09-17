@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    text-align: center;
+    font-family: inherit;
+    font-size: larger;
+}
+
+label {
+    display: block;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+input {
+    font-family: inherit;
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    text-align: center;
+    max-width: 290px;
+}
+
+#output {
+    margin: 0.5rem auto;
+    padding: 3rem 1rem;
+    width: 100%;
+    color: black;
+}
