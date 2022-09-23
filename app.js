@@ -11,14 +11,14 @@ function showOutput(msg){
 function calculateProfitandLoss(initial, quantity,current){
     if(current > initial){
         var profit = (current - initial)*quantity;
-        var profitPercentage = (profit/initial)*100;
+        var profitPercentage = ((current - initial)/initial)*100;
 
         showOutput(`Hey, the profit is ${profit} and the percent is ${profitPercentage}%.`);
     }
 
     else if(initial > current){
         var loss = (initial - current)*quantity;
-        var lossPercentage = (loss/initial)*100;
+        var lossPercentage = ((initial - current)/initial)*100;
 
         showOutput(`Hey, the loss is ${loss} and the percent is ${lossPercentage}%.`);
     }
@@ -28,10 +28,19 @@ function calculateProfitandLoss(initial, quantity,current){
 }
 
 function clickEventHandler(){
-    var ip = Number(initialPrice.value);
-    var qty = Number(quantityOfStocks.value);
-    var cp = Number(currentPrice.value);
-    calculateProfitandLoss(ip,qty,cp);
+    var ip = initialPrice.value;
+    var qty = quantityOfStocks.value;
+    var cp = currentPrice.value;
+    if(ip == "" || qty == "" || cp == ""){
+        outputDiv.innerText = "Please Enter something in fields. "
+    }
+    else if(Number(ip) <= 0 || Number(qty) <= 0 || Number(cp) <= 0){
+        outputDiv.innerText = "Field value must be greater than 0. "
+    }
+    else{
+        calculateProfitandLoss(Number(ip),Number(qty),Number(cp));
+    }
+    
 }
 
 submitBtn.addEventListener("click", clickEventHandler);
